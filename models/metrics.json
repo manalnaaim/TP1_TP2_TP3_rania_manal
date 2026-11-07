@@ -1,0 +1,14 @@
+{
+  "source": "demo",
+<<<<<<< HEAD
+  "date": "2026-11-07",
+=======
+  "date": "2026-10-30",
+>>>>>>> 04fdeb0c48fadf5e8eb8fa315157ae9fdc15426c
+  "n_train": 232,
+  "n_test": 58,
+  "f1_macro": 0.879,
+  "accuracy": 0.8793,
+  "recall_negative": 0.931,
+  "seuil_f1": 0.85
+}

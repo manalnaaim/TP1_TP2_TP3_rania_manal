@@ -1,0 +1,38 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+
+# Secrets
+.env
+
+# Artefacts lourds (DVC et MLflow à partir de la semaine 7)
+models/*
+!models/.gitkeep
+!models/metrics.json
+data/*
+!data/.gitkeep
+!data/sample_reviews.csv
+mlruns/
+mlflow.db
+
+# Éditeurs et système
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+<<<<<<< HEAD
+=======
+
+sentiment-app/
+
+tp2-semaine2-kit/
+>>>>>>> 04fdeb0c48fadf5e8eb8fa315157ae9fdc15426c

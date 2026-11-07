@@ -1,0 +1,18 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  tp1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+<<<<<<< HEAD
+      - run: python -m venv .venv && . .venv/bin/activate && pip install pandas scikit-learn pytest "fastapi==0.115.*" "httpx==0.27.*" "uvicorn==0.30.*"
+      - name: Modèle de démonstration, pour les tests de l'API (TP3)
+        run: . .venv/bin/activate && python src/make_demo.py && python src/train.py
+=======
+      - run: python -m venv .venv && . .venv/bin/activate && pip install pandas scikit-learn pytest
+>>>>>>> 04fdeb0c48fadf5e8eb8fa315157ae9fdc15426c
+      - run: . .venv/bin/activate && pytest -q
