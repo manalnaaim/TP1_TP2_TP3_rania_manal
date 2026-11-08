@@ -36,3 +36,29 @@ sentiment-app/
 
 tp2-semaine2-kit/
 >>>>>>> 04fdeb0c48fadf5e8eb8fa315157ae9fdc15426c
+
+# TP4
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+!data/jeu_or.csv
+
+tp4-tests-qualite-kit/
+
+# TP5
+!data/avis_exemple.csv
+
+kit-tp5/
+
+# Dossiers de travail à ignorer
+kit-tp3/
+tp2-semaine2-kit/
+tp4-tests-qualite-kit/
+tp5-interface-kit/
+sentiment-app/
+sentiment-app _nv/
+notebooks/
+.coverage
+.hypothesis/
+.mypy_cache/
+.ruff_cache/

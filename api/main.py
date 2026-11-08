@@ -1,8 +1,4 @@
-"""API REST du classifier de sentiment (TP3).
-
-Lancer : uvicorn api.main:app --reload
-Doc    : http://localhost:8000/docs
-"""
+﻿"""API REST du classifier de sentiment (TP3)."""
 import logging
 from contextlib import asynccontextmanager
 
@@ -33,7 +29,6 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS : indispensable pour un frontend web (TP5). En production, lister les domaines autorisés.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -57,26 +52,21 @@ async def root():
 
 @app.get("/health", response_model=HealthResponse, summary="Santé de l'API")
 async def health_check():
-    """Répond 200 si le modèle est chargé, 503 sinon. Appelé par les outils de déploiement (TP4)."""
+    """Répond 200 si le modèle est chargé, 503 sinon."""
     return {"status": "OK", "model": _classifier().model_name}
 
 
 @app.post("/predict", response_model=PredictResponse, summary="Classifier un texte")
 async def predict(request: PredictRequest):
-    """Renvoie le sentiment (POSITIVE ou NEGATIVE) et la confiance.
-
-    - 422 : texte vide ou trop long (Pydantic), ou refusé par le modèle
-    - 503 : modèle non chargé
-    - 500 : erreur inattendue (journalisée côté serveur, jamais renvoyée au client)
-    """
+    """Renvoie le sentiment (POSITIVE, NEGATIVE ou INDETERMINE) et la confiance."""
     clf = _classifier()
     try:
+        # C'est ici que le modèle est appelé. Il renvoie déjà le bon label
+        # (POSITIVE, NEGATIVE ou INDETERMINE) en fonction du seuil.
         result = clf.predict(request.text)
-    except ValueError as e:
-        raise HTTPException(status_code=422, detail=str(e))
     except Exception:
         logger.exception("Erreur lors de la prédiction")
-        raise HTTPException(status_code=500, detail="Erreur interne du serveur")
+        raise HTTPException(status_code=500, detail="Erreur interne du serveur") from None
     logger.info("predict: %r -> %s (%.2f)", request.text[:50], result["label"], result["score"])
     return result
 

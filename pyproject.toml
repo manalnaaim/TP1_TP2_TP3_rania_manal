@@ -1,0 +1,12 @@
+[tool.ruff]
+exclude = [".venv", "notebooks", "kit-tp3", "kit-tp2", "src", "scripts", "tests/test_cadrage.py", "tests/test_environment.py", "tests/test_git_history.py", "tests/test_model.py", "tests/test_api.py", "tests/test_integration.py", "tests/test_jeu_or.py", "tests/test_limites.py"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.coverage.run]
+source = ["api"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if __name__ == .__main__.:"]

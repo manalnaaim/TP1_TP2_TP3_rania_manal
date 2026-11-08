@@ -1,10 +1,5 @@
-#!/usr/bin/env python
-"""Prédiction unitaire : la fonction que l'API de la semaine 3 appellera.
-
-Usage :
-  python src/predict.py "Livraison rapide, très satisfait"
-  >>> from predict import predict ; predict("texte")
-"""
+﻿#!/usr/bin/env python
+"""Prédiction unitaire : la fonction que l'API de la semaine 3 appellera."""
 import sys
 from functools import lru_cache
 from pathlib import Path
@@ -16,7 +11,6 @@ MODELE = Path(__file__).resolve().parents[1] / "models" / "sentiment.joblib"
 
 @lru_cache(maxsize=1)
 def charger_modele():
-    """Chargé une seule fois par processus, pas à chaque appel."""
     if not MODELE.exists():
         raise FileNotFoundError("models/sentiment.joblib absent : lancez python src/train.py")
     return joblib.load(MODELE)

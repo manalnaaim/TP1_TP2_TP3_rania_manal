@@ -1,0 +1,21 @@
+text,attendu,difficulte,erreur_connue
+"Livre passionnant, je l'ai dévoré en deux jours",POSITIVE,,
+"Service client réactif et très professionnel",POSITIVE,,
+"Produit de qualité, conforme à la description",POSITIVE,,
+"Livraison rapide, emballage soigné, rien à redire",POSITIVE,,
+"Je recommande vivement cet achat",POSITIVE,,
+"Vraiment déçu, le produit est arrivé cassé",NEGATIVE,,
+"Ne fonctionne pas du tout, retour immédiat",NEGATIVE,,
+"Qualité médiocre pour le prix",NEGATIVE,,
+"Je ne recommande pas, perte de temps et d'argent",NEGATIVE,,
+"Le support technique est injoignable",NEGATIVE,,
+"Pas mauvais du tout, même plutôt agréable",POSITIVE,négation,Le modèle lit "mauvais" comme négatif
+"Ce n'est pas le meilleur que j'ai eu, mais il fait le job",NEGATIVE,négation,
+"Génial, encore un produit qui tombe en panne au bout de 3 jours",NEGATIVE,ironie,
+"Super, j'adore attendre 3 semaines pour une livraison",NEGATIVE,ironie,
+"Bon produit mais la livraison a été un peu longue",POSITIVE,mitigé,
+"Excellent service, dommage que l'emballage soit abîmé",POSITIVE,mitigé,
+"Très bon rapport qualité prix, je suis content",POSITIVE,,
+"Article reçu avec du retard mais le vendeur est sympathique",POSITIVE,mitigé,
+"Ce n'est vraiment pas terrible, je regrette mon achat",NEGATIVE,négation,Le modèle lit "pas terrible" comme positif
+"Bof, sans plus, je m'attendais à mieux",NEGATIVE,mitigé,Le modèle lit "mieux" comme positif
