@@ -1,4 +1,4 @@
-# Environnement Python
+﻿# Environnement Python
 .venv/
 __pycache__/
 *.pyc
@@ -9,17 +9,19 @@ build/
 # Secrets
 .env
 
-# Artefacts lourds (DVC et MLflow à partir de la semaine 7)
+# Artefacts lourds
 models/*
 !models/.gitkeep
 !models/metrics.json
 data/*
 !data/.gitkeep
 !data/sample_reviews.csv
+!data/jeu_or.csv
+!data/avis_exemple.csv
 mlruns/
 mlflow.db
 
-# Éditeurs et système
+# Editeurs et systeme
 .vscode/
 .idea/
 .DS_Store
@@ -29,36 +31,28 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
-<<<<<<< HEAD
-=======
-
-sentiment-app/
-
-tp2-semaine2-kit/
->>>>>>> 04fdeb0c48fadf5e8eb8fa315157ae9fdc15426c
-
-# TP4
 .hypothesis/
 .mypy_cache/
 .ruff_cache/
-!data/jeu_or.csv
 
+# Kits TP
+kit-tp3/
+kit-tp4/
+kit-tp5/
+kit-tp6/
+tp2-semaine2-kit/
 tp4-tests-qualite-kit/
+tp5-interface-kit/
+tp6-packaging-kit/
+ressources*/
+
+# TP4
+!data/jeu_or.csv
 
 # TP5
 !data/avis_exemple.csv
 
-kit-tp5/
-
-# Dossiers de travail � ignorer
-kit-tp3/
-tp2-semaine2-kit/
-tp4-tests-qualite-kit/
-tp5-interface-kit/
-sentiment-app/
-sentiment-app _nv/
-notebooks/
-.coverage
-.hypothesis/
-.mypy_cache/
-.ruff_cache/
+# TP6
+dist/
+build/
+*.egg-info/

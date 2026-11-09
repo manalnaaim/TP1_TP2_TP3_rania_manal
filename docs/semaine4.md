@@ -15,7 +15,7 @@
 
 ## 3. Seuil d'abstention
 
-- Voici ce qu'on a vu avec `python src/courbe_seuil.py` :
+- Ce qu'on a vu avec `python src/courbe_seuil.py` :
   - Seuil 0,50 : 58 avis (100%), exactitude 0,879, 7 erreurs, 0 vers un humain.
   - Seuil 0,60 : 42 avis (72%), exactitude 0,952, 2 erreurs, 16 vers un humain.
   - Seuil 0,70 : 37 avis (64%), exactitude 1,000, 0 erreur, 21 vers un humain.

@@ -10,6 +10,6 @@ On pense que c'est mieux comme ça : si l'API démarre sans le modèle, elle va 
 
 Oui, c'est un peu redondant. Le schéma Pydantic refuse le texte vide (on l'a vu avec le `field_validator` au TP4), et la fonction `predict()` du TP2 le refuse aussi.
 
-Mais on a compris que c'est une sécurité. Si on appelle `predict()` directement depuis un script Python (sans passer par l'API), le schéma Pydantic n'est pas là pour vérifier. Du coup, c'est `predict()` qui fait le travail. Et si quelqu'un modifie le schéma plus tard, `predict()` bloque quand même. 
+Mais ce n'est q'une sécurité. Si on appelle `predict()` directement depuis un script Python sans passer par l'API , le schéma Pydantic n'est pas là pour vérifier. Du coup, c'est `predict()` qui fait le travail. Et si quelqu'un modifie le schéma plus tard, `predict()` bloque quand même. 
 
 Par contre, au TP4 on a vu que ça posait problème parce que les deux refus n'étaient pas pareils (l'un renvoyait une erreur standard et l'autre une simple chaîne). C'est pour ça qu'on a dû les aligner et enlever l'erreur 422 dans `main.py`.

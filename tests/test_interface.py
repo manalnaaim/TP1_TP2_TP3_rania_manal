@@ -18,6 +18,7 @@ pytestmark = pytest.mark.skipif(not (RACINE / "models" / "sentiment.joblib").exi
 @pytest.fixture(scope="module")
 def api():
     from fastapi.testclient import TestClient
+
     from api.main import app
     with TestClient(app) as c:
         yield c
