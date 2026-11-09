@@ -1,22 +1,23 @@
 ﻿# sentiment-app : dépôt du binôme
 
-Application fil rouge du cours *Développement et déploiement d'applications intelligentes*.
+Application fil rouge du cours **Développement et déploiement d'applications intelligentes**.
+
 Ce dépôt grandit chaque semaine ; la semaine 1 met en place le cadrage et l'environnement.
 
 ## Installation (3 commandes)
 
-``bash
+```bash
 python -m venv .venv
 source .venv/bin/activate        # Windows PowerShell : .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-``
+```
 
 ## Vérifier son installation
 
-``bash
-python scripts/check_setup.py    # diagnostic lisible : versions, dossiers, Git
-pytest -q                        # mêmes vérifications sous forme de tests
-``
+```bash
+python scripts/check_setup.py    # Diagnostic lisible : versions, dossiers, Git
+pytest -q                        # Mêmes vérifications sous forme de tests
+```
 
 La démarche complète de test, étape par étape, est dans `TESTS.md`.
 
@@ -24,97 +25,97 @@ La démarche complète de test, étape par étape, est dans `TESTS.md`.
 
 ```text
 sentiment-app/
-├── README.md                # ce fichier
-├── requirements.txt         # dépendances de tout le semestre
-├── requirements-dev.txt     # outils de qualité (ruff, mypy, pre-commit)
-├── pyproject.toml           # configuration de ruff, mypy et coverage
-├── pytest.ini               # configuration de pytest
-├── .gitignore               # fichiers exclus de Git
-├── .pre-commit-config.yaml  # crochet de pré-commit
-├── CHANGELOG.md             # journal des versions (TP6)
+├── README.md                 # Ce fichier
+├── requirements.txt          # Dépendances de tout le semestre
+├── requirements-dev.txt      # Outils de qualité (ruff, mypy, pre-commit)
+├── pyproject.toml            # Configuration de ruff, mypy et coverage
+├── pytest.ini                # Configuration de pytest
+├── .gitignore                # Fichiers exclus de Git
+├── .pre-commit-config.yaml   # Crochet de pré-commit
+├── CHANGELOG.md              # Journal des versions (TP6)
 │
-├── sentiment_app/           # Paquet installable (TP6)
-│   ├── __init__.py          # version 0.6.0
-│   ├── __main__.py          # point d'entrée
-│   ├── cli.py               # commande sentiment
-│   └── predict.py           # fonction predict()
+├── sentiment_app/            # Paquet installable (TP6)
+│   ├── __init__.py           # Version 0.6.0
+│   ├── __main__.py           # Point d'entrée
+│   ├── cli.py                # Commande sentiment
+│   └── predict.py            # Fonction predict()
 │
-├── api/                     # API FastAPI (TP3)
+├── api/                      # API FastAPI (TP3)
 │   ├── __init__.py
-│   ├── main.py              # routes /, /health, /predict
-│   ├── model.py             # enveloppe du modèle (seuil d'abstention)
-│   └── schemas.py           # contrat Pydantic (validation)
+│   ├── main.py               # Routes /, /health, /predict
+│   ├── model.py              # Enveloppe du modèle (seuil d'abstention)
+│   └── schemas.py            # Contrat Pydantic (validation)
 │
-├── ui/                      # Interface Streamlit (TP5)
+├── ui/                       # Interface Streamlit (TP5)
 │   ├── __init__.py
-│   ├── app.py               # page web (un avis / fichier d'avis)
-│   └── client.py            # client HTTP qui appelle l'API
+│   ├── app.py                # Page web (un avis / fichier d'avis)
+│   └── client.py             # Client HTTP qui appelle l'API
 │
-├── src/                     # Modèle et scripts (TP2)
-│   ├── make_demo.py         # génère le jeu de démonstration
-│   ├── train.py             # entraîne le modèle (TF-IDF + logreg)
-│   ├── evaluate.py          # évalue et affiche les erreurs
-│   ├── predict.py           # fonction predict() utilisée par l'API
-│   ├── courbe_seuil.py      # mesure le seuil d'abstention
-│   └── bilan_jeu_or.py      # bilan des 20 avis du jeu d'or
+├── src/                      # Modèle et scripts (TP2)
+│   ├── make_demo.py          # Génère le jeu de démonstration
+│   ├── train.py              # Entraîne le modèle (TF-IDF + logreg)
+│   ├── evaluate.py           # Évalue et affiche les erreurs
+│   ├── predict.py             # Fonction predict() utilisée par l'API
+│   ├── courbe_seuil.py       # Mesure le seuil d'abstention
+│   └── bilan_jeu_or.py       # Bilan des 20 avis du jeu d'or
 │
-├── tests/                   # Tests pytest (TP1 à TP6)
-│   ├── test_environment.py  # tests d'environnement (TP1)
-│   ├── test_cadrage.py      # tests des fiches de cadrage (TP1)
-│   ├── test_git_history.py  # tests de l'historique Git (TP1)
-│   ├── test_model.py        # tests du modèle (TP2)
-│   ├── test_api.py          # tests de l'API (TP3)
-│   ├── test_limites.py      # tests aux limites (TP4)
-│   ├── test_integration.py  # tests d'intégration (TP4)
-│   ├── test_jeu_or.py       # tests du jeu d'or (TP4)
-│   ├── test_client.py       # tests du client HTTP (TP5)
-│   ├── test_interface.py    # tests de la page Streamlit (TP5)
-│   └── test_packaging.py    # tests du paquet (TP6)
+├── tests/                    # Tests pytest (TP1 à TP6)
+│   ├── test_environment.py   # Tests d'environnement (TP1)
+│   ├── test_cadrage.py       # Tests des fiches de cadrage (TP1)
+│   ├── test_git_history.py   # Tests de l'historique Git (TP1)
+│   ├── test_model.py         # Tests du modèle (TP2)
+│   ├── test_api.py           # Tests de l'API (TP3)
+│   ├── test_limites.py       # Tests aux limites (TP4)
+│   ├── test_integration.py   # Tests d'intégration (TP4)
+│   ├── test_jeu_or.py        # Tests du jeu d'or (TP4)
+│   ├── test_client.py        # Tests du client HTTP (TP5)
+│   ├── test_interface.py     # Tests de la page Streamlit (TP5)
+│   └── test_packaging.py     # Tests du paquet (TP6)
 │
-├── data/                    # jeux de données
+├── data/                     # Jeux de données
 │   ├── .gitkeep
-│   ├── sample_reviews.csv   # exemple fourni au TP1
-│   ├── demo_reviews.csv     # généré par make_demo.py (hors Git)
-│   ├── jeu_or.csv           # les 20 avis du jeu d'or (TP4)
-│   └── avis_exemple.csv     # exemple pour l'interface (TP5)
+│   ├── sample_reviews.csv    # Exemple fourni au TP1
+│   ├── demo_reviews.csv      # Généré par make_demo.py (hors Git)
+│   ├── jeu_or.csv            # Les 20 avis du jeu d'or (TP4)
+│   └── avis_exemple.csv      # Exemple pour l'interface (TP5)
 │
-├── models/                  # modèles entraînés
+├── models/                   # Modèles entraînés
 │   ├── .gitkeep
-│   ├── metrics.json         # mesures du modèle (versionné)
-│   └── sentiment.joblib     # modèle (jamais dans Git)
+│   ├── metrics.json          # Mesures du modèle (versionné)
+│   └── sentiment.joblib      # Modèle (jamais dans Git)
 │
-├── scripts/                 # utilitaires
-│   ├── check_setup.py       # diagnostic de l'environnement
-│   ├── new_cadrage.py       # crée une nouvelle fiche de cadrage
-│   ├── setup.ps1            # installation sous Windows
-│   └── setup.sh             # installation sous Linux/macOS
+├── scripts/                  # Utilitaires
+│   ├── check_setup.py        # Diagnostic de l'environnement
+│   ├── new_cadrage.py        # Crée une nouvelle fiche de cadrage
+│   ├── setup.ps1             # Installation sous Windows
+│   └── setup.sh              # Installation sous Linux/macOS
 │
-└── docs/                    # documentation et comptes rendus
-    ├── cadrage/             # fiches de cadrage (TP1)
+└── docs/                     # Documentation et comptes rendus
+    ├── cadrage/              # Fiches de cadrage (TP1)
     │   ├── TEMPLATE.md
     │   ├── EXEMPLE-corrige.md
     │   ├── BANQUE-DE-CAS.md
     │   ├── cas1-pharmacie.md
     │   ├── cas2-reglement.md
     │   └── cas3-avis-negatifs.md
-    ├── semaine2.md          # compte rendu TP2
-    ├── semaine3.md          # compte rendu TP3
-    ├── semaine4.md          # compte rendu TP4
-    ├── semaine5.md          # compte rendu TP5
-    └── semaine6.md          # compte rendu TP6
-``
+    ├── semaine2.md            # Compte rendu TP2
+    ├── semaine3.md            # Compte rendu TP3
+    ├── semaine4.md            # Compte rendu TP4
+    ├── semaine5.md            # Compte rendu TP5
+    └── semaine6.md            # Compte rendu TP6
+```
 
 ## Membres du binôme
 
 | Rôle | Nom | Identifiant GitHub | Travail de la semaine 1 |
-| --- | --- | --- | --- |
+|---|---|---|---|
 | Membre A | Naaim Manal | [@manalnaaim](https://github.com/manalnaaim) | Cadrage cas 3 + tests + check_setup + vérification CI |
 | Membre B | Abdelali Rania | [@Rania20042004](https://github.com/Rania20042004) | Cadrage cas 1 et 2 + dépôt GitHub + setup |
 
 ## Répartition du travail (TP1 à TP6)
 
 | Semaine | Membre A (Manal) | Membre B (Rania) |
-| --- | --- | --- |
+|---|---|---|
 | **TP1** | Cadrage cas 3, création du dépôt, script `check_setup`, vérification CI. | Rédaction des fiches cas 1 et 2, setup de l'environnement. |
 | **TP2** | Installation du kit, entraînement du modèle (démo et Allociné), `docs/semaine2.md`. | Relecture des erreurs, vérification des métriques. |
 | **TP3** | Création de l'API (`api/main.py`), correction des schémas, tests `/docs`. | Rédaction de `docs/semaine3.md`, vérification des refus (422). |
