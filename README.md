@@ -22,7 +22,7 @@ La démarche complète de test, étape par étape, est dans `TESTS.md`.
 
 ## Structure
 
-``text
+```text
 sentiment-app/
 ├── README.md                # ce fichier
 ├── requirements.txt         # dépendances de tout le semestre
@@ -31,6 +31,13 @@ sentiment-app/
 ├── pytest.ini               # configuration de pytest
 ├── .gitignore               # fichiers exclus de Git
 ├── .pre-commit-config.yaml  # crochet de pré-commit
+├── CHANGELOG.md             # journal des versions (TP6)
+│
+├── sentiment_app/           # Paquet installable (TP6)
+│   ├── __init__.py          # version 0.6.0
+│   ├── __main__.py          # point d'entrée
+│   ├── cli.py               # commande sentiment
+│   └── predict.py           # fonction predict()
 │
 ├── api/                     # API FastAPI (TP3)
 │   ├── __init__.py
@@ -51,7 +58,7 @@ sentiment-app/
 │   ├── courbe_seuil.py      # mesure le seuil d'abstention
 │   └── bilan_jeu_or.py      # bilan des 20 avis du jeu d'or
 │
-├── tests/                   # Tests pytest (TP1 à TP5)
+├── tests/                   # Tests pytest (TP1 à TP6)
 │   ├── test_environment.py  # tests d'environnement (TP1)
 │   ├── test_cadrage.py      # tests des fiches de cadrage (TP1)
 │   ├── test_git_history.py  # tests de l'historique Git (TP1)
@@ -61,7 +68,8 @@ sentiment-app/
 │   ├── test_integration.py  # tests d'intégration (TP4)
 │   ├── test_jeu_or.py       # tests du jeu d'or (TP4)
 │   ├── test_client.py       # tests du client HTTP (TP5)
-│   └── test_interface.py    # tests de la page Streamlit (TP5)
+│   ├── test_interface.py    # tests de la page Streamlit (TP5)
+│   └── test_packaging.py    # tests du paquet (TP6)
 │
 ├── data/                    # jeux de données
 │   ├── .gitkeep
@@ -92,7 +100,8 @@ sentiment-app/
     ├── semaine2.md          # compte rendu TP2
     ├── semaine3.md          # compte rendu TP3
     ├── semaine4.md          # compte rendu TP4
-    └── semaine5.md          # compte rendu TP5
+    ├── semaine5.md          # compte rendu TP5
+    └── semaine6.md          # compte rendu TP6
 ``
 
 ## Membres du binôme
@@ -102,7 +111,7 @@ sentiment-app/
 | Membre A | Naaim Manal | [@manalnaaim](https://github.com/manalnaaim) | Cadrage cas 3 + tests + check_setup + vérification CI |
 | Membre B | Abdelali Rania | [@Rania20042004](https://github.com/Rania20042004) | Cadrage cas 1 et 2 + dépôt GitHub + setup |
 
-## Répartition du travail (TP1 à TP5)
+## Répartition du travail (TP1 à TP6)
 
 | Semaine | Membre A (Manal) | Membre B (Rania) |
 | --- | --- | --- |
@@ -111,4 +120,4 @@ sentiment-app/
 | **TP3** | Création de l'API (`api/main.py`), correction des schémas, tests `/docs`. | Rédaction de `docs/semaine3.md`, vérification des refus (422). |
 | **TP4** | Tests d'intégration (`test_integration.py`), correction des pannes (500), jeu d'or. | Tests du client, vérification des erreurs (xfail). |
 | **TP5** | Création de l'interface Streamlit (`ui/app.py`), connexion avec l'API. | Rédaction de `docs/semaine5.md`, tests des erreurs (API injoignable). |
-
+| **TP6** | Création du paquet (`sentiment_app/`), configuration de la roue. | Rédaction de `docs/semaine6.md`, tests du paquet. |
