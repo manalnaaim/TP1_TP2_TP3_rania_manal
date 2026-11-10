@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Installer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Installer les dépendances
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+          pip install "scikit-learn==1.5.*"
+      - name: Diagnostic
+        run: . .venv/bin/activate && python scripts/check_setup.py
+      - name: Modèle de démonstration
+        run: . .venv/bin/activate && python src/make_demo.py && python src/train.py
+      - name: Outils de qualité
+        run: . .venv/bin/activate && ruff check . && mypy api
+      - name: Tests et couverture
+        run: . .venv/bin/activate && pytest -q --cov=api --cov-report=term-missing --cov-fail-under=95
+      - name: Roue installée hors du dépôt (TP6)
+        run: |
+          . .venv/bin/activate
+          python -m build --wheel
+          python -m venv /tmp/roue
+          /tmp/roue/bin/pip install dist/*.whl
+          cd /tmp
+          SENTIMENT_MODELE="$GITHUB_WORKSPACE/models/sentiment.joblib" /tmp/roue/bin/sentiment predict "Livraison rapide, produit conforme, très satisfait"
