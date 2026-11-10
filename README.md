@@ -121,4 +121,4 @@ sentiment-app/
 | **TP3** | Création de l'API (`api/main.py`), correction des schémas, tests `/docs`. | Rédaction de `docs/semaine3.md`, vérification des refus (422). |
 | **TP4** | Tests d'intégration (`test_integration.py`), correction des pannes (500), jeu d'or. | Tests du client, vérification des erreurs (xfail). |
 | **TP5** | Création de l'interface Streamlit (`ui/app.py`), connexion avec l'API. | Rédaction de `docs/semaine5.md`, tests des erreurs (API injoignable). |
-| **TP6** | Création du paquet (`sentiment_app/`), configuration de la roue. | Rédaction de `docs/semaine6.md`, tests du paquet. |
+| **TP6** | Création du paquet (`sentiment_app/`), configuration de la roue. | Rédaction de `docs/semaine6.md`, tests du paquet. | 
